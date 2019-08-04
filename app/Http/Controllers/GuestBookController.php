@@ -17,7 +17,8 @@ class GuestBookController extends Controller
         $necessity  = Necessity::all();
         $guestGroup = Guest_group::all();
     
-        $dateNow    = Carbon::now()->format('l, d F Y');
+        $dayNow     = config('library.day.'.Carbon::now()->format('L'));
+        $dateNow    = $dayNow.', '.Carbon::now()->format('d F Y');
 
         $guestRecap = $this->guestRecap();
 
