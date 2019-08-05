@@ -59,7 +59,12 @@ class GuestBookController extends Controller
 
     public function persen($singleValue, $allValue)
     {
-        $result = ($singleValue / $allValue) * 100;
+        if($singleValue == 0 || $allValue == 0){
+            $result = 0;
+        }else{
+            $result = ($singleValue / $allValue) * 100;
+        }
+
         $result = round($result).'%';
 
         return $singleValue.' | '.$result;
